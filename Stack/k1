@@ -1,0 +1,48 @@
+#include"Stack.h"
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    stac *st;
+    char k;
+    int temp;
+    createStack(st);
+    while(1)
+    {
+        printf("\nOptions\n");
+        printf("1.Push in Stack\n2.Pop from Stack\n3.Top element in Stack\n4.Print the stack\n5.Tell the size of stack\n6.Exit\n");
+       scanf("%d",&temp);
+       if(temp==1)
+       {
+            scanf(" %c",&k);
+            pushStack(st,k);
+       }
+       else if(temp==2)
+       {
+           k=popStack(st);
+           if(k=='\0')
+               printf("Stack is Empty!\n");
+           else
+               printf("%c\n",k);
+       }
+       else if(temp==3)
+       {
+           k=stackTop(st);
+           if(k=='\0')
+               printf("Stack is Empty!\n");
+           else
+               printf("%c\n",k);
+       }
+       else if(temp==4)
+       {
+           for(int i=0;i<st->sz;i++)
+               printf("%c ",st->A[i]);
+           printf("\n");
+       }
+       else if(temp==5)
+           printf("%d\n",st->top);
+       else
+           break;
+    }
+    return 0;
+}
